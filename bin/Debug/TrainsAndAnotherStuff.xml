@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!--Документ с примером данных-->
+<TrainsAndOtherStuff> 
+  <Locations>    
+    <Location>
+      <Name>Москва</Name>
+      <X>14</X>
+      <Y>12</Y>
+    </Location>
+    
+    <Location>
+      <Name>Санкт-Петербург</Name>
+      <X>39</X>
+      <Y>23</Y>
+    </Location>
+  </Locations>
+
+  <Trains>
+    <Train>
+      <Number>1</Number>
+      <TimeOfDeparuture>06:00</TimeOfDeparuture>
+      <TimeOfArrival>16:00</TimeOfArrival>
+      
+      <Routes>
+        <Route>
+          <Location>Москва</Location>
+          <Arrive>05:50</Arrive>
+          <Depart>06:00</Depart>
+        </Route>
+        
+        <Route>
+          <Location>Санкт-Петербург</Location>
+          <Arrive>16:00</Arrive>
+          <Depart>16:10</Depart>
+        </Route>
+      </Routes>
+      
+      <Passengers>
+        <Passenger>
+          <ID>1000</ID>
+          <FName>Ксения</FName>
+          <LName>Румянцева</LName>
+          <TypeOfTicket>Плацкарт</TypeOfTicket>
+        </Passenger>
+        
+        <Passenger>
+          <ID>1001</ID>
+          <FName>Трофименко</FName>
+          <LName>Дарья</LName>
+          <TypeOfTicket>Плацкарт</TypeOfTicket>
+        </Passenger>
+        
+        <Passenger>
+          <ID>1002</ID>
+          <FName>Алёшина</FName>
+          <LName>Анастасия</LName>
+          <TypeOfTicket>Плацкарт</TypeOfTicket>
+        </Passenger>
+        
+        <Passenger>
+          <ID>1003</ID>
+          <FName>Андрей</FName>
+          <LName>Яковличев</LName>
+          <TypeOfTicket>Плацкарт</TypeOfTicket>
+        </Passenger>
+      </Passengers>
+    </Train>
+  </Trains>
+</TrainsAndOtherStuff>

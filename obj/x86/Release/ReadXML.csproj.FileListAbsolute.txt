@@ -1,0 +1,5 @@
+E:\Trains\ReadXML\bin\Release\ReadXML.exe
+E:\Trains\ReadXML\bin\Release\ReadXML.pdb
+E:\Trains\ReadXML\obj\x86\Release\ResolveAssemblyReference.cache
+E:\Trains\ReadXML\obj\x86\Release\ReadXML.exe
+E:\Trains\ReadXML\obj\x86\Release\ReadXML.pdb
