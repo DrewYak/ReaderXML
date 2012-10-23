@@ -18,18 +18,13 @@ namespace ReadXML
 
             while (reader.Read())
             {
-                switch (reader.NodeType)
+                if (reader.Name == "ID")
                 {
-                    case XmlNodeType.Element:
-                    Console.WriteLine("<{0}>:", reader.Name);
-                    break;
-
-                    case XmlNodeType.Text:
-                    Console.WriteLine("    {0}", reader.Value);
-                    break;
-
+                    reader.Read();
+                    Console.WriteLine(reader.Value);
                 }
             }
+
         }
     }
 }
