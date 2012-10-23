@@ -18,9 +18,17 @@ namespace ReadXML
 
             while (reader.Read())
             {
-                Console.WriteLine("Name: {0}", reader.Name);
-                Console.WriteLine("Value: {0}", reader.Value);
-                Console.WriteLine("ValueType: {0}", reader.ValueType);
+                switch (reader.NodeType)
+                {
+                    case XmlNodeType.Element:
+                    Console.WriteLine("<{0}>:", reader.Name);
+                    break;
+
+                    case XmlNodeType.Text:
+                    Console.WriteLine("    {0}", reader.Value);
+                    break;
+
+                }
             }
         }
     }
