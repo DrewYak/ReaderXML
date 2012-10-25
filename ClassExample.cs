@@ -11,47 +11,26 @@ namespace ReadXML
 
         public static void Main()
         {
-            XmlTextReader reader;
-            reader = new XmlTextReader(filename);
-            
-            reader.WhitespaceHandling = WhitespaceHandling.None;
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filename);
 
-            Console.WriteLine("До считывания из файла: ");
-            Passenger.Print();
+            XmlNodeList ListID              = doc.GetElementsByTagName("ID");
+            XmlNodeList ListFName           = doc.GetElementsByTagName("FName");
+            XmlNodeList ListLName           = doc.GetElementsByTagName("LName");
+            XmlNodeList ListTipeOfTicket    = doc.GetElementsByTagName("TypeOfTicket");
 
-            while (reader.Read())
+            for (int i = 0; i < ListID.Count; i++)
             {
-                if (reader.NodeType == XmlNodeType.Element)         
-                {
-                    switch (reader.Name)
-                    {
-                        case "Passenger":
-                        
-                        Passenger ThePassenger = new Passenger(0, "", "", "");
-                        reader.Read();
+                Passenger ThePassenger      = new Passenger(0, "", "", "");
 
-                        reader.ReadStartElement("ID");
-                        ThePassenger.ID = reader.ReadContentAsInt();
-                        reader.ReadEndElement();
+                ThePassenger.ID             = Convert.ToInt32(ListID[i].InnerText);
+                ThePassenger.FirstName      = ListFName[i].InnerText;
+                ThePassenger.LastName       = ListLName[i].InnerText;
+                ThePassenger.TypeOfTicket   = ListTipeOfTicket[i].InnerText;
 
-                        reader.ReadStartElement("FName");
-                        ThePassenger.FirstName = reader.ReadString();
-                        reader.ReadEndElement();
-
-                        reader.ReadStartElement("LName");
-                        ThePassenger.LastName = reader.ReadString();
-                        reader.ReadEndElement();
-
-                        reader.ReadStartElement("TypeOfTicket");
-                        ThePassenger.TypeOfTicket = reader.ReadString();
-                        reader.ReadEndElement();
-
-                        ThePassenger.Add();
-                        
-                        break;
-                    }
-                }
+                ThePassenger.Add();
             }
+
             Console.WriteLine("После считавания из файла:");
             Passenger.Print();
         }
