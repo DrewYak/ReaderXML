@@ -3,3 +3,5 @@ E:\Trains\ReadXML\bin\Debug\ReadXML.pdb
 E:\Trains\ReadXML\obj\x86\Debug\ResolveAssemblyReference.cache
 E:\Trains\ReadXML\obj\x86\Debug\ReadXML.exe
 E:\Trains\ReadXML\obj\x86\Debug\ReadXML.pdb
+E:\Trains\ReadXML\bin\Debug\nunit.framework.dll
+E:\Trains\ReadXML\bin\Debug\nunit.framework.xml

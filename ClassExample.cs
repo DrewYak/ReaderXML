@@ -16,15 +16,36 @@ namespace ReadXML
 
             reader.WhitespaceHandling = WhitespaceHandling.None;
 
+            Passenger.Print();
+
+            Passenger ThePassenger = new Passenger(0, "", "", "");
             while (reader.Read())
             {
                 if (reader.Name == "ID")
                 {
                     reader.Read();
-                    Console.WriteLine(reader.Value);
+                    ThePassenger.ID = Convert.ToInt16(reader.Value);
                 }
+                if (reader.Name == "FName")
+                {
+                    reader.Read();
+                    ThePassenger.FirstName = reader.Value;
+                }
+                if (reader.Name == "LName")
+                {
+                    reader.Read();
+                    ThePassenger.LastName = reader.Value;
+                }
+                if (reader.Name == "TypeOfTicket")
+                {
+                    reader.Read();
+                    ThePassenger.TypeOfTicket = reader.Value;
+                    ThePassenger.Add();
+                }
+            
             }
 
+            Passenger.Print();
         }
     }
 }

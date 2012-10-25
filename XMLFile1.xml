@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Passengers>
+  <Passenger>
+    <ID>2002</ID>
+    <FName>Алексей</FName>
+    <LName>Лукин</LName>
+    <TypeOfTicket>Плацкарт</TypeOfTicket>
+  </Passenger>
+
+  <Passenger>
+    <ID>2002</ID>
+    <FName>Алексей</FName>
+    <LName>Лукин</LName>
+    <TypeOfTicket>Плацкарт</TypeOfTicket>
+  </Passenger>
+
+  <Passenger>
+    <ID>2003</ID>
+    <FName>Алексей</FName>
+    <LName>Лукин</LName>
+    <TypeOfTicket>Плацкарт</TypeOfTicket>
+  </Passenger>
+
+  <Passenger>
+    <ID>2002</ID>
+    <FName>Алексей</FName>
+    <LName>Лукин</LName>
+    <TypeOfTicket>Плацкарт</TypeOfTicket>
+  </Passenger>
+
+
+</Passengers> 
