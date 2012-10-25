@@ -7,7 +7,7 @@ namespace ReadXML
 {
     class Example
     {
-        private const String filename = "TrainsAndAnotherStuff.xml";
+        private const String filename = "E:\\Trains\\ReadXML\\TrainsAndAnotherStuff.xml";
 
         public static void Main()
         {
@@ -21,32 +21,35 @@ namespace ReadXML
             Passenger.Print();
             Console.WriteLine("********Конец*********\n");
 
-            Passenger ThePassenger = new Passenger(0, "", "", "");
             while (reader.Read())
             {
                 if (reader.NodeType == XmlNodeType.Element)         
                 {
                     switch (reader.Name)
                     {
-                        case "ID":
-                        reader.Read();
-                        ThePassenger.ID = Convert.ToInt32(reader.Value);
-                        break;
+                        case "Passenger":
                         
-                        case "FName":
+                        Passenger ThePassenger = new Passenger(0, "", "", "");
                         reader.Read();
-                        ThePassenger.FirstName = reader.Value;
-                        break;
-                        
-                        case "LName":
-                        reader.Read();
-                        ThePassenger.LastName = reader.Value;
-                        break;
 
-                        case "TypeOfTicket":
-                        reader.Read();
-                        ThePassenger.TypeOfTicket = reader.Value;
+                        reader.ReadStartElement("ID");
+                        ThePassenger.ID = reader.ReadContentAsInt();
+                        reader.ReadEndElement();
+
+                        reader.ReadStartElement("FName");
+                        ThePassenger.FirstName = reader.ReadString();
+                        reader.ReadEndElement();
+
+                        reader.ReadStartElement("LName");
+                        ThePassenger.LastName = reader.ReadString();
+                        reader.ReadEndElement();
+
+                        reader.ReadStartElement("TypeOfTicket");
+                        ThePassenger.TypeOfTicket = reader.ReadString();
+                        reader.ReadEndElement();
+
                         ThePassenger.Add();
+                        
                         break;
                     }
                 }
