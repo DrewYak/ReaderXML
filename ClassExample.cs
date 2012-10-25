@@ -13,39 +13,48 @@ namespace ReadXML
         {
             XmlTextReader reader;
             reader = new XmlTextReader(filename);
-
+            
             reader.WhitespaceHandling = WhitespaceHandling.None;
 
+            Console.WriteLine("До считывания из файла: ");
+            Console.WriteLine("********Начало********");
             Passenger.Print();
+            Console.WriteLine("********Конец*********\n");
 
             Passenger ThePassenger = new Passenger(0, "", "", "");
             while (reader.Read())
             {
-                if (reader.Name == "ID")
+                if (reader.NodeType == XmlNodeType.Element)         
                 {
-                    reader.Read();
-                    ThePassenger.ID = Convert.ToInt16(reader.Value);
-                }
-                if (reader.Name == "FName")
-                {
-                    reader.Read();
-                    ThePassenger.FirstName = reader.Value;
-                }
-                if (reader.Name == "LName")
-                {
-                    reader.Read();
-                    ThePassenger.LastName = reader.Value;
-                }
-                if (reader.Name == "TypeOfTicket")
-                {
-                    reader.Read();
-                    ThePassenger.TypeOfTicket = reader.Value;
-                    ThePassenger.Add();
-                }
-            
-            }
+                    switch (reader.Name)
+                    {
+                        case "ID":
+                        reader.Read();
+                        ThePassenger.ID = Convert.ToInt32(reader.Value);
+                        break;
+                        
+                        case "FName":
+                        reader.Read();
+                        ThePassenger.FirstName = reader.Value;
+                        break;
+                        
+                        case "LName":
+                        reader.Read();
+                        ThePassenger.LastName = reader.Value;
+                        break;
 
+                        case "TypeOfTicket":
+                        reader.Read();
+                        ThePassenger.TypeOfTicket = reader.Value;
+                        ThePassenger.Add();
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine("После считавания из файла:");
+            Console.WriteLine("********Начало********");
             Passenger.Print();
+            Console.WriteLine("********Конец*********");
         }
     }
 }
