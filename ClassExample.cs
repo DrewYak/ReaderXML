@@ -7,7 +7,7 @@ namespace ReadXML
 {
     class Example
     {
-        private const String filename = "E:\\Trains\\ReadXML\\TrainsAndAnotherStuff.xml";
+        private const String filename = "TrainsAndAnotherStuff.xml";
 
         public static void Main()
         {
@@ -17,9 +17,7 @@ namespace ReadXML
             reader.WhitespaceHandling = WhitespaceHandling.None;
 
             Console.WriteLine("До считывания из файла: ");
-            Console.WriteLine("********Начало********");
             Passenger.Print();
-            Console.WriteLine("********Конец*********\n");
 
             while (reader.Read())
             {
@@ -55,9 +53,7 @@ namespace ReadXML
                 }
             }
             Console.WriteLine("После считавания из файла:");
-            Console.WriteLine("********Начало********");
             Passenger.Print();
-            Console.WriteLine("********Конец*********");
         }
     }
 }

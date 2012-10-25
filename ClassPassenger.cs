@@ -41,6 +41,7 @@ class Passenger
     /// </summary>
     public static void Print()
     {
+        Console.WriteLine("\n**********Начало**********");
         foreach (KeyValuePair<int, Passenger> kvp in AllPassengers)
         {
             Console.WriteLine("Номер паспорта: {0}", kvp.Key);
@@ -49,6 +50,7 @@ class Passenger
             Console.WriteLine("Тип билета:     {0}",kvp.Value.TypeOfTicket);
             Console.WriteLine("------------------------------");
         }
+        Console.WriteLine("**********Конец***********\n");
     }
 
     /// <summary>
