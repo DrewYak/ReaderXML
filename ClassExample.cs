@@ -7,31 +7,16 @@ namespace ReadXML
 {
     class Example
     {
-        private const String filename = "TrainsAndAnotherStuff.xml";
+        private const string filename = "TrainsAndAnotherStuff.xml";
 
         public static void Main()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filename);
+            Console.WriteLine("До считывания из файла: ");
+            Passenger.Print();
 
-            XmlNodeList ListID              = doc.GetElementsByTagName("ID");
-            XmlNodeList ListFName           = doc.GetElementsByTagName("FName");
-            XmlNodeList ListLName           = doc.GetElementsByTagName("LName");
-            XmlNodeList ListTipeOfTicket    = doc.GetElementsByTagName("TypeOfTicket");
+            Passenger.AddDataFromFile(filename);
 
-            for (int i = 0; i < ListID.Count; i++)
-            {
-                Passenger ThePassenger      = new Passenger(0, "", "", "");
-
-                ThePassenger.ID             = Convert.ToInt32(ListID[i].InnerText);
-                ThePassenger.FirstName      = ListFName[i].InnerText;
-                ThePassenger.LastName       = ListLName[i].InnerText;
-                ThePassenger.TypeOfTicket   = ListTipeOfTicket[i].InnerText;
-
-                ThePassenger.Add();
-            }
-
-            Console.WriteLine("После считавания из файла:");
+            Console.WriteLine("После считывания из файла:");
             Passenger.Print();
         }
     }
